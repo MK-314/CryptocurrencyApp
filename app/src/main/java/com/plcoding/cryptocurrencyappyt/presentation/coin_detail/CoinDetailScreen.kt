@@ -85,14 +85,16 @@ fun CoinDetailScreen(
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                 }
-                items(coin.team) { teamMember ->
-                    TeamListItem(
-                        teamMember = teamMember,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(10.dp)
-                    )
-                    Divider()
+                coin.team?.let {
+                    items(coin.team) { teamMember ->
+                        TeamListItem(
+                            teamMember = teamMember,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(10.dp)
+                        )
+                        Divider()
+                    }
                 }
             }
         }
